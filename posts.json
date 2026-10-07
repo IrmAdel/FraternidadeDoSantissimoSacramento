@@ -1,0 +1,38 @@
+[
+  {
+    "id": "p3x1",
+    "date": "2026-09-14",
+    "pt": {
+      "titulo": "Vigília da Exaltação da Santa Cruz",
+      "texto": "Uma noite de salmos, silêncio e intercessão diante do Santíssimo Sacramento."
+    },
+    "es": {
+      "titulo": "Vigilia de la Exaltación de la Santa Cruz",
+      "texto": "Una noche de salmos, silencio e intercesión ante el Santísimo Sacramento."
+    }
+  },
+  {
+    "id": "p2x1",
+    "date": "2026-08-02",
+    "pt": {
+      "titulo": "Novos irmãos e irmãs",
+      "texto": "Novos membros assumiram a Regra de vida durante a Santa Eucaristia."
+    },
+    "es": {
+      "titulo": "Nuevos hermanos y hermanas",
+      "texto": "Nuevos miembros asumieron la Regla de vida durante la Santa Eucaristía."
+    }
+  },
+  {
+    "id": "p1x1",
+    "date": "2026-03-10",
+    "pt": {
+      "titulo": "Fundação da Fraternidade",
+      "texto": "Nasce a Fraternidade, para promover a adoração e a vida eucarística na tradição anglicana."
+    },
+    "es": {
+      "titulo": "Fundación de la Fraternidad",
+      "texto": "Nace la Fraternidad para promover la adoración y la vida eucarística en la tradición anglicana."
+    }
+  }
+]

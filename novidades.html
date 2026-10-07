@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-tema="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="t_nov">Novidades | Fraternidade do Santíssimo Sacramento</title>
+  <script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.tema=t}catch(e){}</script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a class="logo-nav" href="index.html"><img src="logo.png" alt=""><span data-i18n="brand">Santíssimo Sacramento</span></a>
+    <ul id="nav-links">
+      <li><a href="index.html" data-i18n="n_inicio">Início</a></li>
+      <li class="tem-sub"><button class="sub-btn" type="button" aria-expanded="false" aria-controls="sub-quem" data-i18n="n_quem">Quem somos</button>
+        <ul class="sub" id="sub-quem">
+          <li><a href="sobrenos.html" data-i18n="n_sobre">Sobre nós</a></li>
+          <li><a href="historia.html" data-i18n="n_hist">Nossa história</a></li>
+          <li><a href="regra.html" data-i18n="n_regra">Regra de vida</a></li>
+        </ul></li>
+      <li class="tem-sub"><button class="sub-btn" type="button" aria-expanded="false" aria-controls="sub-lit" data-i18n="n_lit">Liturgia</button>
+        <ul class="sub" id="sub-lit">
+          <li><a href="adoracao.html" data-i18n="n_adoracao">Adoração</a></li>
+          <li><a href="loc.html" data-i18n="n_loc">Livro de Oração Comum</a></li>
+        </ul></li>
+      <li><a href="novidades.html" data-i18n="n_nov">Novidades</a></li>
+      <li><a href="contato.html" data-i18n="n_contato">Contato</a></li>
+    </ul>
+    <div class="controles">
+      <button id="tema" type="button" data-i18n-aria="aria_tema" aria-label="Alternar tema">
+        <svg class="ico-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button id="idioma" type="button" aria-label="Cambiar a español">ES</button>
+      <button class="hamburger" id="hamburger" type="button" data-i18n-aria="aria_menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </nav>
+<header class="faixa"><div class="wrap">
+    <h1 data-i18n="nov">Novidades</h1>
+    <p class="sub-t" data-i18n="nv_sub">o que aconteceu na Fraternidade</p>
+</div></header>
+<main>
+  <div class="wrap" style="padding-top:2.5rem">
+      <div class="linhas" data-posts></div>
+  </div>
+</main>
+<footer>
+  <div class="wrap rodape-cols">
+    <div>
+      <div class="marca"><img src="logo.png" alt=""><span data-i18n="brand">Santíssimo Sacramento</span></div>
+      <p data-i18n="f_desc">Comunidade de oração em torno da Eucaristia, na Igreja Episcopal Anglicana do Brasil.</p>
+    </div>
+    <div>
+      <h4 data-i18n="f_nav">Navegação</h4>
+      <ul><li><a href="sobrenos.html" data-i18n="n_sobre">Sobre nós</a></li><li><a href="regra.html" data-i18n="n_regra">Regra de vida</a></li><li><a href="adoracao.html" data-i18n="n_adoracao">Adoração</a></li><li><a href="loc.html" data-i18n="n_loc">Livro de Oração Comum</a></li><li><a href="novidades.html" data-i18n="n_nov">Novidades</a></li></ul>
+    </div>
+    <div>
+      <h4 data-i18n="f_cont">Contato</h4>
+      <!-- Troque pelos dados reais -->
+      <ul>
+        <li><a href="mailto:contato@exemplo.org.br">contato@exemplo.org.br</a></li>
+        <li>Rua da Igreja, 100, sua cidade, UF</li>
+        <li><a href="https://instagram.com/SEU-PERFIL">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy"><span data-i18n="rodape">© Fraternidade Episcopal Anglicana do Santíssimo Sacramento · Igreja Episcopal Anglicana do Brasil</span> &middot; <a href="admin.html" data-i18n="f_admin">Administração</a></div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
