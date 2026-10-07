@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-tema="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administração | Fraternidade do Santíssimo Sacramento</title>
+  <script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.tema=t}catch(e){}</script>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a class="logo-nav" href="index.html"><img src="logo.png" alt=""><span>Santíssimo Sacramento</span></a>
+    <div class="controles" style="margin-left:auto"><a class="btn sec peq" href="index.html">Voltar ao site</a></div>
+  </nav>
+  <header class="faixa"><div class="wrap">
+    <h1>Administração</h1>
+    <p class="sub-t">área restrita para publicar novidades</p>
+  </div></header>
+  <main>
+    <div class="wrap admin">
+
+      <!-- Entrada -->
+      <section id="login">
+        <h2>Entrar</h2>
+        <p class="dica">Entre com os dados do repositório do site no GitHub e um token de acesso pessoal. Só quem tem permissão de escrita no repositório consegue publicar.</p>
+        <form id="form-login" autocomplete="off" style="margin-top:1.2rem">
+          <label>Repositório (usuário/nome)<input id="repo" type="text" placeholder="meu-usuario/fraternidade" required></label>
+          <label>Branch<input id="branch" type="text" value="main" required></label>
+          <label>Token de acesso do GitHub<input id="token" type="password" required></label>
+          <label style="display:flex;gap:.6rem;align-items:center;font-weight:400"><input id="lembrar" type="checkbox" style="width:auto"> Lembrar neste computador</label>
+          <div class="acoes"><button class="btn" type="submit">Entrar</button></div>
+          <p class="status" id="st-login" role="status"></p>
+        </form>
+      </section>
+
+      <!-- Painel -->
+      <section id="painel" hidden>
+        <div class="topo-admin">
+          <p class="dica" id="quem"></p>
+          <button class="btn sec peq" id="sair" type="button">Sair</button>
+        </div>
+
+        <form id="form-post" style="margin-top:1.5rem">
+          <h2 id="titulo-form">Nova novidade</h2>
+          <label>Data<input id="data" type="date" required></label>
+          <label>Título (português)<input id="t-pt" type="text" required></label>
+          <label>Texto (português)<textarea id="x-pt" required></textarea></label>
+          <p class="dica">Deixe uma linha em branco entre os parágrafos.</p>
+          <label>Título (espanhol, opcional)<input id="t-es" type="text"></label>
+          <label>Texto (espanhol, opcional)<textarea id="x-es"></textarea></label>
+          <p class="dica">Se o espanhol ficar em branco, o site mostra o texto em português para quem escolher ES.</p>
+          <div class="acoes">
+            <button class="btn" id="publicar" type="submit">Publicar</button>
+            <button class="btn sec" id="cancelar" type="button" hidden>Cancelar edição</button>
+          </div>
+          <p class="status" id="st-post" role="status"></p>
+        </form>
+
+        <div style="margin-top:2.5rem">
+          <h2>Novidades publicadas</h2>
+          <ul class="lista-admin" id="lista"></ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="copy">As publicações aparecem no site cerca de 1 minuto depois.</div></footer>
+  <script src="admin.js"></script>
+</body>
+</html>
