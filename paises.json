@@ -8,4 +8,12 @@
     "observadores": 12,
     "site": "https://ieab.org.br"
   }
+  {
+  "mapa": "Spain",
+    "pais": { "pt": "Espanha", "es": "España" },
+    "igreja": { "pt": "Igreja Espanhola Reformada Episcopal", "es": "Iglesia Española Reformada Episcopal" },
+    "plenos": 1,
+    "outras": 0,
+    "observadores": 0,
+    "site": "https://anglicanos.es/"
 ]
