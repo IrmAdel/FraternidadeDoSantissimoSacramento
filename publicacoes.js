@@ -17,7 +17,7 @@
       respA: 'Respondendo a', enviando: 'Enviando...', ok: 'Comentário publicado.',
       falha: 'Não foi possível enviar. Tente de novo.', espere: 'Aguarde alguns segundos antes de comentar de novo.',
       semcfg: 'Os comentários ainda não foram configurados neste site.', erroC: 'Não foi possível carregar os comentários.',
-      carregando: 'Carregando comentários...', sufixo: 'Fraternidade do Santíssimo Sacramento'
+      carregando: 'Carregando comentários...', soPt: 'Este texto está disponível apenas em português.', sufixo: 'Fraternidade do Santíssimo Sacramento'
     },
     es: {
       pub_tit: 'Noticias y ensayos', pub_sub: 'lo que ocurre y lo que pensamos en la Fraternidad',
@@ -30,7 +30,7 @@
       respA: 'Respondiendo a', enviando: 'Enviando...', ok: 'Comentario publicado.',
       falha: 'No se pudo enviar. Inténtalo de nuevo.', espere: 'Espera unos segundos antes de volver a comentar.',
       semcfg: 'Los comentarios aún no se han configurado en este sitio.', erroC: 'No se pudieron cargar los comentarios.',
-      carregando: 'Cargando comentarios...', sufixo: 'Fraternidad del Santísimo Sacramento'
+      carregando: 'Cargando comentarios...', soPt: 'Este texto solo está disponible en portugués.', sufixo: 'Fraternidad del Santísimo Sacramento'
     }
   };
   const lang = () => html.dataset.idioma === 'es' ? 'es' : 'pt';
@@ -40,6 +40,10 @@
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
   const fmtData = d => new Date(d + 'T00:00:00Z').toLocaleDateString(loc(), { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
   const fmtHora = iso => new Date(iso).toLocaleString(loc(), { dateStyle: 'short', timeStyle: 'short' });
+  // texto no idioma escolhido; se não houver tradução, cai para o português
+  const tit = p => (lang() === 'es' && p.es && p.es.titulo) || p.titulo;
+  const txt = p => (lang() === 'es' && p.es && p.es.texto) || p.texto;
+  const traduzido = p => !!(p.es && p.es.titulo && p.es.texto);
   const foto = p => (p.foto && /^imagens\//.test(p.foto)) ? p.foto : '';
   const paragrafos = (txt, alvo) => String(txt || '').split(/\n\s*\n/).forEach(x => { if (x.trim()) alvo.append(el('p', null, x.trim())); });
   const tagEl = p => el('span', 'tag ' + (p.tag === 'ensaio' ? 'ensaio' : 'noticia'), t(p.tag === 'ensaio' ? 'ensaio' : 'noticia'));
@@ -74,8 +78,8 @@
       else { f.classList.add('sem-foto'); const i = el('img'); i.src = 'logo.png'; i.alt = ''; f.append(i); }
       const meta = el('div', 'meta'); const tm = el('time', null, fmtData(p.date)); tm.dateTime = p.date;
       meta.append(tagEl(p), tm);
-      const h = el('h3', null, p.titulo);
-      const primeiro = String(p.texto || '').split(/\n\s*\n/)[0].trim();
+      const h = el('h3', null, tit(p));
+      const primeiro = String(txt(p) || '').split(/\n\s*\n/)[0].trim();
       const ex = el('p', 'resumo', primeiro.length > 170 ? primeiro.slice(0, 167).trimEnd() + '…' : primeiro);
       a.append(f, meta, h, ex); grade.append(a);
     });
@@ -97,12 +101,13 @@
     $('comentarios').hidden = !postAtual;
     if (!postAtual) { artigo.append(el('p', null, t('naoachou'))); return; }
     const p = postAtual;
-    document.title = p.titulo + ' | ' + t('sufixo');
+    document.title = tit(p) + ' | ' + t('sufixo');
     const meta = el('div', 'meta'); const tm = el('time', null, fmtData(p.date)); tm.dateTime = p.date;
     meta.append(tagEl(p), tm);
-    artigo.append(meta, el('h1', null, p.titulo));
-    if (foto(p)) { const fg = el('figure'); const i = el('img'); i.src = foto(p); i.alt = p.titulo; fg.append(i); artigo.append(fg); }
-    const corpo = el('div', 'corpo'); paragrafos(p.texto, corpo); artigo.append(corpo);
+    artigo.append(meta, el('h1', null, tit(p)));
+    if (foto(p)) { const fg = el('figure'); const i = el('img'); i.src = foto(p); i.alt = tit(p); fg.append(i); artigo.append(fg); }
+    if (lang() === 'es' && !traduzido(p)) artigo.append(el('p', 'aviso-idioma', t('soPt')));
+    const corpo = el('div', 'corpo'); paragrafos(txt(p), corpo); artigo.append(corpo);
   }
 
   // ----- Supabase (REST) -----

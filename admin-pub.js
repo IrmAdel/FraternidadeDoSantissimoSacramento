@@ -105,7 +105,7 @@
     est.posts.forEach(p => {
       const li = document.createElement('li');
       const t = document.createElement('time'); t.textContent = p.date.split('-').reverse().join('/');
-      const n = document.createElement('span'); n.textContent = '[' + rotuloTag(p.tag) + '] ' + p.titulo;
+      const n = document.createElement('span'); n.textContent = '[' + rotuloTag(p.tag) + (p.es && p.es.titulo && p.es.texto ? ' · ES' : '') + '] ' + p.titulo;
       const bts = document.createElement('div'); bts.className = 'bts';
       const ver = document.createElement('a'); ver.className = 'btn sec peq'; ver.textContent = 'Ver'; ver.href = 'publicacao.html?id=' + encodeURIComponent(p.id); ver.target = '_blank'; ver.rel = 'noopener';
       const ed = document.createElement('button'); ed.type = 'button'; ed.className = 'btn sec peq'; ed.textContent = 'Editar';
@@ -130,6 +130,7 @@
     est.editando = id; est.fotoAtual = p.foto || '';
     $('tag').value = p.tag === 'ensaio' ? 'ensaio' : 'noticia';
     $('data').value = p.date; $('titulo').value = p.titulo; $('texto').value = p.texto;
+    $('t-es').value = (p.es && p.es.titulo) || ''; $('x-es').value = (p.es && p.es.texto) || '';
     previa(p.foto || '');
     $('titulo-form').textContent = 'Editar publicação';
     $('publicar').textContent = 'Salvar alterações';
@@ -196,6 +197,8 @@
       let fotoFinal = est.removerFoto ? '' : est.fotoAtual;
       if (est.fotoNova) fotoFinal = await enviarFoto(id, est.fotoNova, titulo);
       const novo = { id, date: $('data').value, tag: $('tag').value, titulo, texto: $('texto').value.trim(), foto: fotoFinal };
+      const tEs = $('t-es').value.trim(), xEs = $('x-es').value.trim();
+      if (tEs || xEs) novo.es = { titulo: tEs, texto: xEs };
       est.posts = est.editando ? est.posts.map(p => p.id === est.editando ? novo : p) : [novo, ...est.posts];
       est.posts.sort((a, b) => b.date.localeCompare(a.date));
       await salvar((est.editando ? 'Editar publicação: ' : 'Nova publicação: ') + titulo);
