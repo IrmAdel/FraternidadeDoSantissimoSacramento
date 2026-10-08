@@ -83,6 +83,8 @@
   // ---------- Idioma (o texto original do HTML é o português) ----------
   const ES = {
     brand:'Santísimo Sacramento',
+    n_pub:'Noticias y ensayos', t_pub:'Noticias y ensayos | Fraternidad del Santísimo Sacramento',
+    n_onde:'¿Dónde estamos?', t_onde:'¿Dónde estamos? | Fraternidad del Santísimo Sacramento',
     n_inicio:'Inicio', n_quem:'Quiénes somos', n_sobre:'Sobre nosotros', n_hist:'Nuestra historia', n_regra:'Regla de vida',
     n_lit:'Liturgia', n_adoracao:'Adoración', n_loc:'Libro de Oración Común', n_nov:'Novedades', n_contato:'Contacto',
     t_inicio:'Inicio | Fraternidad del Santísimo Sacramento', t_sobre:'Sobre nosotros | Fraternidad del Santísimo Sacramento',
