@@ -3,9 +3,9 @@
     "mapa": "Brazil",
     "pais": { "pt": "Brasil", "es": "Brasil" },
     "igreja": { "pt": "Igreja Episcopal Anglicana do Brasil", "es": "Iglesia Episcopal Anglicana de Brasil" },
-    "plenos": 10,
-    "outras": 1,
-    "observadores": 12,
+    "plenos": 5,
+    "outras": 0,
+    "observadores": 4,
     "site": "https://ieab.org.br"
   },
   {
