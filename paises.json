@@ -1,20 +1,5 @@
 [
   {
-    "mapa": "Albania",
-    "pais": {
-      "pt": "albania",
-      "es": ""
-    },
-    "igreja": {
-      "pt": "acsa",
-      "es": ""
-    },
-    "plenos": 1,
-    "outras": 1,
-    "observadores": 1,
-    "site": ""
-  },
-  {
     "mapa": "Brazil",
     "pais": {
       "pt": "Brasil",
