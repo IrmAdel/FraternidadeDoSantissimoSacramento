@@ -18,12 +18,12 @@
     "site": "https://anglicanos.es/"
   },
   {
-      "mapa": "Portugal",
+    "mapa": "Portugal",
     "pais": { "pt": "Portugal", "es": "Portugal" },
-    "igreja": { "pt": "Igreja Lusitana Católica Apostólica Evangélica", "es": "Iglesia Evangélica Apostólica Católica Lusitana" },
+    "igreja": { "pt": "Igreja Lusitana Católica Apostólica Evangélica", "es": "Iglesia Católica Apostólica Evangélica Lusitana" },
     "plenos": 0,
     "outras": 0,
     "observadores": 1,
     "site": "https://igreja-lusitana.org/"
-  {
+  }
 ]
