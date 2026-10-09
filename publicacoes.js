@@ -153,7 +153,16 @@
   async function carregarComentarios() {
     if (!configurado()) { comCarregando = false; renderComentarios(); return; }
     try {
-      comentarios = await sb('comentarios?select=id,parent_id,apelido,texto,criado_em&post_id=eq.' + encodeURIComponent(id) + '&order=criado_em.asc&limit=1000');
+      const [lista, ocultos] = await Promise.all([
+        sb('comentarios?select=id,parent_id,apelido,texto,criado_em&post_id=eq.' + encodeURIComponent(id) + '&order=criado_em.asc&limit=1000'),
+        fetch('comentarios-ocultos.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : []).catch(() => [])
+      ]);
+      // comentários apagados pelo admin somem, junto com as respostas a eles (a lista vem em ordem de data)
+      const fora = new Set(Array.isArray(ocultos) ? ocultos : []);
+      comentarios = lista.filter(c => {
+        if (fora.has(c.id) || (c.parent_id && fora.has(c.parent_id))) { fora.add(c.id); return false; }
+        return true;
+      });
       comErro = false;
     } catch (e) { comErro = true; }
     comCarregando = false; renderComentarios();

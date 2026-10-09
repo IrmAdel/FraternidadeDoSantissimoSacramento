@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Administração | Fraternidade do Santíssimo Sacramento</title>
+  <title>Comentários (admin) | Fraternidade do Santíssimo Sacramento</title>
   <script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.tema=t}catch(e){}</script>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="publicacoes.css">
   <link rel="stylesheet" href="admin-extra.css">
 </head>
 <body>
@@ -16,14 +17,13 @@
     <a class="logo-nav" href="index.html"><img src="logo.png" alt=""><span>Santíssimo Sacramento</span></a>
     <div class="controles" style="margin-left:auto"><a class="btn sec peq" href="index.html">Voltar ao site</a></div>
   </nav>
-  <div class="abas-admin"><div class="wrap"><a href="admin.html" aria-current="page">Novidades</a><a href="admin-pub.html">Notícias e ensaios</a><a href="admin-mapa.html">Mapa</a><a href="admin-comentarios.html">Comentários</a></div></div>
+  <div class="abas-admin"><div class="wrap"><a href="admin.html">Novidades</a><a href="admin-pub.html">Notícias e ensaios</a><a href="admin-mapa.html">Mapa</a><a href="admin-comentarios.html" aria-current="page">Comentários</a></div></div>
   <header class="faixa"><div class="wrap">
-    <h1>Administração</h1>
-    <p class="sub-t">área restrita para publicar novidades</p>
+    <h1>Comentários</h1>
+    <p class="sub-t">apague do site comentários ofensivos ou indevidos</p>
   </div></header>
   <main>
     <div class="wrap admin">
-
       <!-- Entrada -->
       <section id="login">
         <h2>Entrar</h2>
@@ -38,37 +38,22 @@
         </form>
       </section>
 
-      <!-- Painel -->
       <section id="painel" hidden>
         <div class="topo-admin">
           <p class="dica" id="quem"></p>
-          <button class="btn sec peq" id="sair" type="button">Sair</button>
+          <div class="acoes"><button class="btn sec peq" id="atualizar" type="button">Atualizar</button><button class="btn sec peq" id="sair" type="button">Sair</button></div>
         </div>
-
-        <form id="form-post" style="margin-top:1.5rem">
-          <h2 id="titulo-form">Nova novidade</h2>
-          <label>Data<input id="data" type="date" required></label>
-          <label>Título (português)<input id="t-pt" type="text" required></label>
-          <label>Texto (português)<textarea id="x-pt" required></textarea></label>
-          <p class="dica">Deixe uma linha em branco entre os parágrafos.</p>
-          <label>Título (espanhol, opcional)<input id="t-es" type="text"></label>
-          <label>Texto (espanhol, opcional)<textarea id="x-es"></textarea></label>
-          <p class="dica">Se o espanhol ficar em branco, o site mostra o texto em português para quem escolher ES.</p>
-          <div class="acoes">
-            <button class="btn" id="publicar" type="submit">Publicar</button>
-            <button class="btn sec" id="cancelar" type="button" hidden>Cancelar edição</button>
-          </div>
-          <p class="status" id="st-post" role="status"></p>
-        </form>
-
-        <div style="margin-top:2.5rem">
-          <h2>Novidades publicadas</h2>
-          <ul class="lista-admin" id="lista"></ul>
+        <div class="filtro-linha" style="margin-top:1.2rem">
+          <label style="display:flex;gap:.6rem;align-items:center;font-weight:500">Mostrar: <select id="filtro-post"></select></label>
         </div>
+        <p class="dica" id="contagem"></p>
+        <p class="status" id="st-lista" role="status"></p>
+        <ul class="raiz" id="lista" style="list-style:none"></ul>
       </section>
     </div>
   </main>
-  <footer><div class="copy">As publicações aparecem no site cerca de 1 minuto depois.</div></footer>
-  <script src="admin.js"></script>
+  <footer><div class="copy">Apagar um comentário também esconde as respostas a ele. Dá para restaurar.</div></footer>
+  <script src="config.js"></script>
+  <script src="admin-comentarios.js"></script>
 </body>
 </html>
